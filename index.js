@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
     project_id: "61b9724ea70f1912d5e0eb11",
     project_token: "client_a05cd40e9f0d2b814249f06fbf97fe0f1d5"
   });
-  const {tts} = req.body;
+  const {tts} = req.query;
 
   await getExotekAccount();
   await oauthFinish();
