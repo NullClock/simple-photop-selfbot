@@ -31,13 +31,13 @@ app.get("/", async (req, res) => {
       code: data.acode
     })
   });
-  let res;
+  let ress;
 
   if (reqq.status == 200) {
-    res = await reqq.json();
-    data.photop.account = res.user;
+    ress = await reqq.json();
+    data.photop.account = ress.user;
     data.photop.userID = data.photop.account._id;
-    data.photop.token = res.token;
+    data.photop.token = ress.token;
 
     let form = new FormData();
     form.append("data", JSON.stringify({
