@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
     },
     body: JSON.stringify({
       code: data.acode
-    });
+    })
   });
   let res;
 
