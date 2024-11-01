@@ -6,7 +6,7 @@ const exotekAPI = "https://exotek.com/api/";
 const data = {photop: {}};
 const oauthData = {
   client_id: "62f8fac716d8eb8d2f6562ef",
-  redirect_url: "https://core.x3jh7.memblu.live",
+  redirect_url: "https://example.org/handleExotekLogin", // fake redirect for no mssing params err
   response_type: "code",
   scope: "userinfo",
   state: "G8nQCcCIFpFVaS9tJkx9"
@@ -22,7 +22,7 @@ app.get("/", async (req, res) => {
   await getExotekAccount();
   await oauthFinish();
 
-  const reqq = await fetch(`https://photop.exotek.co/auth?ss=${ss.secureID}`, {
+  const reqq = await fetch(`https://api.photop.live/auth?ss=${ss.secureID}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -44,7 +44,7 @@ app.get("/", async (req, res) => {
       text: tts
     }));
 
-    const reqq2 = await fetch(`https://photop.exotek.co/posts/new`, {
+    const reqq2 = await fetch(`https://api.photop.live/posts/new`, {
       method: "POST",
       headers: {
         "auth": `${data.photop.userID};${data.photop.token.session}`,
@@ -62,8 +62,8 @@ async function getExotekAccount() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      email: "helio@memblu.live",
-      password: "Hlel0035!"
+      email: "// nope",
+      password: "// nope"
     })
   });
   let res;
