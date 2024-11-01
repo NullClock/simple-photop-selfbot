@@ -1,3 +1,7 @@
+const exoem = null; // IMPORTANT -- YOUR EXOTEK EMAIL (or set the env var EXOTEK_EMAIL)
+const exopas = null; // IMPORTANT -- YOUR EXOTEK PASSWORD (or set the env var EXOTEK_PASSWORD)
+
+
 const express = require("express");
 const FormData = require("form-data");
 const Socket = require("simple-socket-js");
@@ -62,8 +66,8 @@ async function getExotekAccount() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      email: "// nope",
-      password: "// nope"
+      email: exoem || process.env.EXOTEK_EMAIL,
+      password: exopas || process.env.EXOTEK_PASSWORD
     })
   });
   let res;
